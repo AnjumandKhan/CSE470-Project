@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "500979476318",
+    "project_id": "socialshout-87d2f",
+    "storage_bucket": "socialshout-87d2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500979476318:android:a896bc214b0bb24b99d1cf",
+        "android_client_info": {
+          "package_name": "com.example.socialshout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500979476318-u13i4dh0vah5a1h4j9mqatfrg28ecvis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPb0UBjOZz4CBcEaTSOZXGMhhIc0rNyO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "500979476318-u13i4dh0vah5a1h4j9mqatfrg28ecvis.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

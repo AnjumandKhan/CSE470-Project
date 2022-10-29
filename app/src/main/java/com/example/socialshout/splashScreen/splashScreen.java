@@ -10,6 +10,7 @@ import android.view.WindowManager;
 
 import com.example.socialshout.MainActivity;
 import com.example.socialshout.R;
+import com.example.socialshout.login.login;
 
 public class splashScreen extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class splashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             public void run() {
 
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), login.class));
                 finish();
 
             }

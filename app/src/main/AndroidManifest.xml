@@ -15,6 +15,27 @@
         android:theme="@style/Theme.SocialShout"
         tools:targetApi="31">
         <activity
+            android:name=".Controller.DashBoard_"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Controller.addVideo"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!--<activity
+            android:name=".addVideo"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>-->
+        <activity
             android:name=".DashBoard.DashBoard"
             android:exported="false">
             <meta-data

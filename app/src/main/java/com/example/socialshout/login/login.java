@@ -11,9 +11,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.example.socialshout.Controller.addVideo;
-import com.example.socialshout.DashBoard.DashBoard;
-import com.example.socialshout.R;
+import com.example.socialshout.Controller.DashBoard_Controller;
+import com.example.socialshout.Controller.addVideo_Controller;
 import com.example.socialshout.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,6 +38,11 @@ public class login extends AppCompatActivity {
 
         firebaseAuth  = FirebaseAuth.getInstance();
 
+        if (FirebaseAuth.getInstance().getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(), DashBoard_Controller.class));
+            finish();
+        }
+
         // loadding bar for login
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Please Wait");
@@ -54,18 +58,15 @@ public class login extends AppCompatActivity {
                 loginUsingFirebase(login_email, login_password);
             }
         });
-
-
     }
 
     private void loginUsingFirebase(String login_email, String login_password) {
-
         firebaseAuth.signInWithEmailAndPassword(login_email, login_password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         progressDialog.dismiss();
                         Toast.makeText(login.this, "login successful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), addVideo.class));
+                        startActivity(new Intent(getApplicationContext(), addVideo_Controller.class));
                        finish();
                     }
                 })

@@ -60,9 +60,18 @@ public class addVideo_Controller extends AppCompatActivity {
             public void onClick(View v) {
                 String video_title = bind_addVideo.txtVtitle.getText().toString();
                 String video_uri_ = video_URI.toString();
-                addVideo_model = new addVideo_Model(video_URI, getApplicationContext(), video_title, video_uri_);
-                addVideo_model.storageUpload();
-                startActivity(new Intent(getApplicationContext(), DashBoard_Controller.class));
+
+                if(video_title=="" && video_uri_ == "")
+                {
+                    Toast.makeText(addVideo_Controller.this, "Please provide all info", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    addVideo_model = new addVideo_Model(video_URI, getApplicationContext(), video_title, video_uri_);
+                    addVideo_model.storageUpload();
+                    startActivity(new Intent(getApplicationContext(), DashBoard_Controller.class));
+                    finish();
+                }
             }
         });
     }
@@ -76,4 +85,10 @@ public class addVideo_Controller extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), DashBoard_Controller.class));
+        finish();
+    }
 }

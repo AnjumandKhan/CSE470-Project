@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 //import com.example.socialshout.Controller.commentPanel_Controller;
+import com.example.socialshout.Controller.commentPanel_Controller;
 import com.example.socialshout.Modal.videoFileModal;
 import com.example.socialshout.Model.ViewHolder.dashBoardViewHolder;
 import com.example.socialshout.R;
@@ -89,7 +90,7 @@ public class DashBoard_Model {
                     }
                 });
 
-                /*holder.comment_btn.setOnClickListener(new View.OnClickListener() {
+                holder.comment_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(context, commentPanel_Controller.class);
@@ -97,7 +98,7 @@ public class DashBoard_Model {
                         intent.putExtra("postKey", postKey_videoId);
                         context.startActivity(intent);
                     }
-                });*/
+                });
             }
  // ggg
             @NonNull

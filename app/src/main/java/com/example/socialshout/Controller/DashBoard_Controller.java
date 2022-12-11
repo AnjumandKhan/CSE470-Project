@@ -10,11 +10,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.socialshout.Model.DashBoard_Model;
 import com.example.socialshout.R;
+import com.example.socialshout.login.login;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class DashBoard_Controller extends AppCompatActivity {
 
@@ -55,15 +58,28 @@ public class DashBoard_Controller extends AppCompatActivity {
     // for menu item selected=
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menu_manageProfile:
-                startActivity(new Intent(getApplicationContext(), userProfile_Controller.class));
-                finish();
-            /*case R.id.menu_explore:
-                startActivity(new Intent(getApplicationContext(), explore_Controller.class));
-                finish();*/
+
+        if(item.getItemId() == R.id.menu_explore){
+            startActivity(new Intent(getApplicationContext(), explorer_controller.class));
+            finish();
+        }
+        else if (item.getItemId() == R.id.menu_manageProfile){
+            Toast.makeText(this, "Userprofile", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(), userProfile_Controller.class));
+            finish();
+        }
+        else if(item.getItemId() == R.id.menu_logOut){
+            Toast.makeText(this, "Signing Out", Toast.LENGTH_SHORT).show();
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getApplicationContext(), login.class));
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        System.exit(0);
+    }
 }

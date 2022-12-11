@@ -55,7 +55,15 @@ public class login extends AppCompatActivity {
                 login_email = bind_log.edtLoginEmail.getText().toString();
                 login_password = bind_log.edtLoginPassword.getText().toString();
                 progressDialog.show();
-                loginUsingFirebase(login_email, login_password);
+                if(login_email.isEmpty() && login_password.isEmpty())
+                {
+                    Toast.makeText(login.this, "Please give necessary credentials", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    loginUsingFirebase(login_email, login_password);
+                }
+
             }
         });
     }
@@ -66,7 +74,7 @@ public class login extends AppCompatActivity {
                     public void onSuccess(AuthResult authResult) {
                         progressDialog.dismiss();
                         Toast.makeText(login.this, "login successful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), addVideo_Controller.class));
+                        startActivity(new Intent(getApplicationContext(), DashBoard_Controller.class));
                        finish();
                     }
                 })
@@ -77,5 +85,11 @@ public class login extends AppCompatActivity {
                         Toast.makeText(login.this, "Login Failed", Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        System.exit(0);
     }
 }

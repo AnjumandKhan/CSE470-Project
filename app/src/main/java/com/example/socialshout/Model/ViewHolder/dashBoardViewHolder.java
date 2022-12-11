@@ -55,7 +55,8 @@ public class dashBoardViewHolder extends RecyclerView.ViewHolder {
             simpleExoPlayerView.setPlayer(simpleExoPlayer);
             simpleExoPlayer.addMediaItem(mediaItem);
             simpleExoPlayer.prepare();
-            simpleExoPlayer.play();
+       //    simpleExoPlayer.play();
+            simpleExoPlayer.setPlayWhenReady(false);
             status.setText(title);
         }
         catch (Exception e )

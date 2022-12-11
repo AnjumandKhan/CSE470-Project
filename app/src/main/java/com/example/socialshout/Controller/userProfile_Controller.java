@@ -51,8 +51,16 @@ public class userProfile_Controller extends AppCompatActivity {
         bind_userProfile.userProfileUserSaveBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userProfile_model = new userProfile_Model(getApplicationContext(), filePath, bind_userProfile.userProfileUserName.getText().toString());
-                userProfile_model.saveIntoFireBase();
+                if(bind_userProfile.userProfileUserName.getText().toString() =="")
+                {
+                    Toast.makeText(userProfile_Controller.this, "Please Enter your name", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    userProfile_model = new userProfile_Model(getApplicationContext(), filePath, bind_userProfile.userProfileUserName.getText().toString());
+                    userProfile_model.saveIntoFireBase();
+                }
+
             }
         });
     }
@@ -105,7 +113,6 @@ public class userProfile_Controller extends AppCompatActivity {
                     Glide.with(getApplicationContext()).load(snapshot.child("uImage").getValue().toString()).into(bind_userProfile.userProfileUserImage);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
